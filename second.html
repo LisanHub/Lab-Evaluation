@@ -1,1 +1,89 @@
-dgftfui
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submitted Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Submitted Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- The data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Get query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const email = urlParams.get('email');
+        const id = urlParams.get('id');
+
+        // Create a row with the data from the form
+        const tableBody = document.querySelector('table tbody');
+        const newRow = tableBody.insertRow();
+
+        const nameCell = newRow.insertCell(0);
+        const emailCell = newRow.insertCell(1);
+        const idCell = newRow.insertCell(2);
+
+        nameCell.textContent = name;
+        emailCell.textContent = email;
+        idCell.textContent = id;
+    </script>
+
+</body>
+
+</html>
