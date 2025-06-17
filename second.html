@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submitted Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Submitted Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Load the saved entries from localStorage
+        const entries = JSON.parse(localStorage.getItem('entries')) || [];
+
+
+        const tableBody = document.getElementById('dataTable');
+
+
+        entries.forEach(entry => {
+            const row = tableBody.insertRow();
+
+            const nameCell = row.insertCell(0);
+            const emailCell = row.insertCell(1);
+            const idCell = row.insertCell(2);
+
+            nameCell.textContent = entry.name;
+            emailCell.textContent = entry.email;
+            idCell.textContent = entry.id;
+        });
+    </script>
+
+</body>
+
+</html>
